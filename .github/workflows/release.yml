@@ -1,0 +1,67 @@
+name: Release VSIX
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build and release VSIX
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify release version
+        shell: bash
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          VERSION="${RELEASE_TAG#v}"
+          PACKAGE_VERSION="$(node -p "require('./package.json').version")"
+
+          if [[ ! "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Release tag must use the format vMAJOR.MINOR.PATCH"
+            exit 1
+          fi
+
+          if [[ "$VERSION" != "$PACKAGE_VERSION" ]]; then
+            echo "Tag version $VERSION does not match package.json version $PACKAGE_VERSION"
+            exit 1
+          fi
+
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+
+      - name: Build themes
+        run: npm run build
+
+      - name: Check generated themes
+        run: npm run check
+
+      - name: Package VSIX
+        run: npm run package:vsix -- --out "gelato-${VERSION}.vsix"
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          gh release create "$RELEASE_TAG" \
+            "gelato-${VERSION}.vsix#Gelato VS Code extension" \
+            --verify-tag \
+            --generate-notes \
+            --title "Gelato $RELEASE_TAG"
