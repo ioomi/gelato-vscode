@@ -28,7 +28,7 @@ To try Gelato from source:
 4. Open the Command Palette and run **Preferences: Color Theme**.
 5. Select **Gelato Sorbet** or **Gelato Affogato**.
 
-Gelato requires Visual Studio Code 1.137.0 or later.
+Gelato requires Visual Studio Code 1.59.0 or later.
 
 ## Font styles
 
