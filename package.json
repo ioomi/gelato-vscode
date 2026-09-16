@@ -1,0 +1,33 @@
+{
+  "name": "gelato-theme",
+  "displayName": "Gelato",
+  "description": "A sweet and creamy dark theme for VS Code, sprinkled with soft pastel colors.",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "node scripts/generate-theme.mjs",
+    "check": "node scripts/generate-theme.mjs --check"
+  },
+  "engines": {
+    "vscode": "^1.137.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Gelato Sorbet",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Gelato Sorbet-color-theme.json"
+      },
+      {
+        "label": "Gelato Affogato",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Gelato Affogato-color-theme.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "yaml": "^2.8.1"
+  }
+}
