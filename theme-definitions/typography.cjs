@@ -1,0 +1,37 @@
+module.exports = {
+  bold: {
+    default: true,
+    textMateScopes: [
+      "keyword.control",
+      "keyword.control.flow",
+      "keyword.control.conditional",
+      "keyword.control.loop",
+      "invalid",
+      "invalid.illegal",
+      "markup.heading",
+      "entity.name.section.markdown",
+      "punctuation.definition.heading.markdown",
+      "markup.bold",
+      "markup.bold string",
+    ],
+    semanticSelectors: ["*.declaration"],
+  },
+  italic: {
+    default: false,
+    textMateScopes: [
+      "comment",
+      "punctuation.definition.comment",
+      "variable.language",
+      "variable.language.this",
+      "variable.language.super",
+      "entity.other.inherited-class",
+      "entity.name.type.module",
+      "entity.name.namespace",
+      "markup.italic",
+      "markup.italic string",
+      "markup.quote",
+      "punctuation.definition.blockquote.markdown",
+    ],
+    semanticSelectors: ["comment", "*.defaultLibrary"],
+  },
+};

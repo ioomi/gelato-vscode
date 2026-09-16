@@ -3,6 +3,10 @@
   "displayName": "Gelato",
   "description": "A sweet and creamy dark theme for VS Code, sprinkled with soft pastel colors.",
   "version": "0.0.1",
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "scripts": {
     "build": "node scripts/generate-theme.mjs",
     "check": "node scripts/generate-theme.mjs --check"
@@ -25,7 +29,25 @@
         "uiTheme": "vs-dark",
         "path": "./themes/Gelato Affogato-color-theme.json"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Gelato",
+      "type": "object",
+      "properties": {
+        "gelato.bold": {
+          "type": "boolean",
+          "scope": "application",
+          "default": true,
+          "description": "Enable bold syntax styles in Gelato Sorbet and Gelato Affogato."
+        },
+        "gelato.italic": {
+          "type": "boolean",
+          "scope": "application",
+          "default": false,
+          "description": "Enable italic syntax styles in Gelato Sorbet and Gelato Affogato."
+        }
+      }
+    }
   },
   "devDependencies": {
     "yaml": "^2.8.1"

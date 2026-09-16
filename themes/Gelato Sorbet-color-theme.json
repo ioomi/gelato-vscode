@@ -247,7 +247,6 @@
         "punctuation.definition.comment"
       ],
       "settings": {
-        "fontStyle": "italic",
         "foreground": "#77736D"
       }
     },
@@ -269,7 +268,6 @@
         "variable.language.super"
       ],
       "settings": {
-        "fontStyle": "italic",
         "foreground": "#E99B91"
       }
     },
@@ -380,7 +378,6 @@
         "keyword.control.loop"
       ],
       "settings": {
-        "fontStyle": "bold",
         "foreground": "#C5AFE2"
       }
     },
@@ -431,7 +428,6 @@
         "entity.name.namespace"
       ],
       "settings": {
-        "fontStyle": "italic",
         "foreground": "#F2D98B"
       }
     },
@@ -485,7 +481,6 @@
         "invalid.illegal"
       ],
       "settings": {
-        "fontStyle": "bold",
         "foreground": "#F3B1A7"
       }
     },
@@ -508,7 +503,6 @@
         "punctuation.definition.heading.markdown"
       ],
       "settings": {
-        "fontStyle": "bold",
         "foreground": "#F2D98B"
       }
     },
@@ -519,7 +513,6 @@
         "markup.bold string"
       ],
       "settings": {
-        "fontStyle": "bold",
         "foreground": "#F3B1A7"
       }
     },
@@ -530,7 +523,6 @@
         "markup.italic string"
       ],
       "settings": {
-        "fontStyle": "italic",
         "foreground": "#D8C4ED"
       }
     },
@@ -563,7 +555,6 @@
         "punctuation.definition.blockquote.markdown"
       ],
       "settings": {
-        "fontStyle": "italic",
         "foreground": "#A09D95"
       }
     },
@@ -596,6 +587,25 @@
       "settings": {
         "foreground": "#E99B91"
       }
+    },
+    {
+      "name": "Gelato global bold",
+      "scope": [
+        "keyword.control",
+        "keyword.control.flow",
+        "keyword.control.conditional",
+        "keyword.control.loop",
+        "invalid",
+        "invalid.illegal",
+        "markup.heading",
+        "entity.name.section.markdown",
+        "punctuation.definition.heading.markdown",
+        "markup.bold",
+        "markup.bold string"
+      ],
+      "settings": {
+        "fontStyle": "bold"
+      }
     }
   ],
   "semanticTokenColors": {
@@ -615,10 +625,7 @@
     "method": "#9FC7EA",
     "macro": "#C5AFE2",
     "label": "#C58F78",
-    "comment": {
-      "foreground": "#77736D",
-      "italic": true
-    },
+    "comment": "#77736D",
     "string": "#A8CC91",
     "keyword": "#C5AFE2",
     "number": "#EAAF84",
@@ -627,16 +634,15 @@
     "decorator": "#C5AFE2",
     "variable.readonly": "#EAAF84",
     "property.readonly": "#EAAF84",
-    "*.declaration": {
-      "bold": true
-    },
     "*.deprecated": {
       "foreground": "#686661",
       "strikethrough": true
     },
     "*.defaultLibrary": {
-      "foreground": "#C58F78",
-      "italic": true
+      "foreground": "#C58F78"
+    },
+    "*.declaration": {
+      "bold": true
     }
   }
 }
