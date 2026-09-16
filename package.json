@@ -3,6 +3,7 @@
   "displayName": "Gelato",
   "publisher": "ioomi",
   "description": "A sweet and creamy dark theme for VS Code, sprinkled with soft pastel colors.",
+  "icon": "assets/gelato-logo.png",
   "version": "1.0.0",
   "repository": {
     "type": "git",
