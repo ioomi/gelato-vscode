@@ -4,6 +4,7 @@ import path from "node:path";
 import process from "node:process";
 import YAML from "yaml";
 import themeDefinitions from "../theme-definitions/index.mjs";
+import typography from "../theme-definitions/typography.cjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const palettePath = path.join(root, "palette.yaml");
@@ -95,6 +96,24 @@ function createSyntax(definition, namedColors) {
       ];
     }),
   );
+
+  for (const [fontStyle, style] of Object.entries(typography)) {
+    if (!style.default) {
+      continue;
+    }
+    tokenColors.push({
+      name: `Gelato global ${fontStyle}`,
+      scope: style.textMateScopes,
+      settings: { fontStyle },
+    });
+    for (const selector of style.semanticSelectors) {
+      const current = semanticTokenColors[selector];
+      semanticTokenColors[selector] = {
+        ...(typeof current === "string" ? { foreground: current } : current),
+        [fontStyle]: true,
+      };
+    }
+  }
 
   return { tokenColors, semanticTokenColors };
 }

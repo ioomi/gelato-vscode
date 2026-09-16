@@ -430,7 +430,6 @@
         "invalid.illegal"
       ],
       "settings": {
-        "fontStyle": "bold",
         "foreground": "#F3B1A7"
       }
     },
@@ -453,7 +452,6 @@
         "punctuation.definition.heading.markdown"
       ],
       "settings": {
-        "fontStyle": "bold",
         "foreground": "#9FC7EA"
       }
     },
@@ -464,7 +462,6 @@
         "markup.bold string"
       ],
       "settings": {
-        "fontStyle": "bold",
         "foreground": "#E99B91"
       }
     },
@@ -475,7 +472,6 @@
         "markup.italic string"
       ],
       "settings": {
-        "fontStyle": "italic",
         "foreground": "#C5AFE2"
       }
     },
@@ -508,7 +504,6 @@
         "punctuation.definition.blockquote.markdown"
       ],
       "settings": {
-        "fontStyle": "italic",
         "foreground": "#686661"
       }
     },
@@ -541,6 +536,25 @@
       "settings": {
         "foreground": "#E99B91"
       }
+    },
+    {
+      "name": "Gelato global bold",
+      "scope": [
+        "keyword.control",
+        "keyword.control.flow",
+        "keyword.control.conditional",
+        "keyword.control.loop",
+        "invalid",
+        "invalid.illegal",
+        "markup.heading",
+        "entity.name.section.markdown",
+        "punctuation.definition.heading.markdown",
+        "markup.bold",
+        "markup.bold string"
+      ],
+      "settings": {
+        "fontStyle": "bold"
+      }
     }
   ],
   "semanticTokenColors": {
@@ -569,15 +583,12 @@
     "decorator": "#E99B91",
     "variable.readonly": "#C5AFE2",
     "property.readonly": "#D8D4C8",
-    "*.declaration": {
-      "bold": true
-    },
     "*.deprecated": {
       "foreground": "#686661",
       "strikethrough": true
     },
-    "*.defaultLibrary": {
-      "italic": true
+    "*.declaration": {
+      "bold": true
     }
   }
 }

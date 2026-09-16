@@ -14,3 +14,14 @@ You can author your README using Visual Studio Code. Here are some useful editor
 * [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
 
 **Enjoy!**
+
+## Font styles
+
+Gelato Sorbet and Gelato Affogato share the same font-style settings:
+
+| Setting | Default | Description |
+| --- | --- | --- |
+| `gelato.bold` | `true` | Enables bold syntax styles in both themes. |
+| `gelato.italic` | `false` | Enables italic syntax styles in both themes. |
+
+Both options are available in the VS Code Settings editor under **Extensions → Gelato** and apply globally.
