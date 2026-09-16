@@ -61,7 +61,7 @@ jobs:
           RELEASE_TAG: ${{ github.ref_name }}
         run: |
           gh release create "$RELEASE_TAG" \
-            "gelato-${VERSION}.vsix#Gelato VS Code extension" \
+            "gelato-${VERSION}.vsix" \
             --verify-tag \
             --generate-notes \
             --title "Gelato $RELEASE_TAG"
