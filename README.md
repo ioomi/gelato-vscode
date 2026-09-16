@@ -1,27 +1,71 @@
-# gelato README
+<p align="center">
+  <img src="./assets/gelato-logo.png" alt="Gelato logo" width="180" />
+</p>
 
-## Working with Markdown
+<h1 align="center">Gelato</h1>
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+<p align="center">
+  A sweet and creamy pair of dark themes for Visual Studio Code,<br />
+  sprinkled with soft pastel colors.
+</p>
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+## Flavors
 
-## For more information
+Gelato keeps the editor comfortably dark while giving syntax a warm, colorful hierarchy. It ships with two distinct flavors built from the same carefully balanced palette:
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+- **Gelato Sorbet** — a colorful, expressive theme with clear separation between syntax elements.
+- **Gelato Affogato** — a restrained theme with richer contrast and a more focused use of color.
 
-**Enjoy!**
+Both themes include semantic highlighting, complete workbench styling, bracket colors, diagnostics, Git decorations, and Markdown syntax support.
+
+## Installation
+
+To try Gelato from source:
+
+1. Clone this repository and open it in Visual Studio Code.
+2. Install the development dependency with `npm install`.
+3. Press `F5` to open an Extension Development Host.
+4. Open the Command Palette and run **Preferences: Color Theme**.
+5. Select **Gelato Sorbet** or **Gelato Affogato**.
+
+Gelato requires Visual Studio Code 1.137.0 or later.
 
 ## Font styles
 
-Gelato Sorbet and Gelato Affogato share the same font-style settings:
+Gelato lets you control its global syntax emphasis from **Settings → Extensions → Gelato**.
 
-| Setting | Default | Description |
+| Setting | Default | Effect |
 | --- | --- | --- |
-| `gelato.bold` | `true` | Enables bold syntax styles in both themes. |
-| `gelato.italic` | `false` | Enables italic syntax styles in both themes. |
+| `gelato.bold` | `true` | Uses bold emphasis for declarations, control flow, headings, and invalid syntax. |
+| `gelato.italic` | `false` | Uses italics for comments, language variables, inherited types, and quotes. |
 
-Both options are available in the VS Code Settings editor under **Extensions → Gelato** and apply globally.
+You can also configure the options directly in `settings.json`:
+
+```json
+{
+  "gelato.bold": true,
+  "gelato.italic": false
+}
+```
+
+The settings apply globally to both Gelato themes and update without requiring a restart.
+
+## Development
+
+The source of truth for Gelato's colors is [`palette.yaml`](./palette.yaml). Theme-specific token rules live in [`theme-definitions`](./theme-definitions), while the generated VS Code theme files are written to [`themes`](./themes).
+
+```bash
+# Generate both theme files
+npm run build
+
+# Verify that generated files are up to date
+npm run check
+```
+
+After changing the palette or a theme definition, run `npm run build` and commit the generated JSON files together with the source changes.
+
+## Contributing
+
+Issues and pull requests are welcome. For color changes, please consider readability across several languages and include a short explanation—or a screenshot—showing the affected syntax.
+
+Made for code that deserves a little sweetness.
