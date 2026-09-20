@@ -10,6 +10,10 @@
     "url": "https://github.com/ioomi/gelato-vscode.git"
   },
   "main": "./extension.js",
+  "extensionKind": [
+    "ui",
+    "workspace"
+  ],
   "activationEvents": [
     "onStartupFinished"
   ],
