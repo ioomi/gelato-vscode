@@ -382,6 +382,27 @@
       }
     },
     {
+      "name": "Preprocessor directives",
+      "scope": [
+        "keyword.control.directive",
+        "punctuation.definition.directive"
+      ],
+      "settings": {
+        "foreground": "#C5AFE2"
+      }
+    },
+    {
+      "name": "Preprocessor macros",
+      "scope": [
+        "entity.name.function.preprocessor",
+        "constant.other.preprocessor",
+        "support.constant.macro"
+      ],
+      "settings": {
+        "foreground": "#EAAF84"
+      }
+    },
+    {
       "name": "Operators",
       "scope": [
         "keyword.operator",
@@ -487,8 +508,7 @@
     {
       "name": "Deprecated",
       "scope": [
-        "invalid.deprecated",
-        "entity.name.function.preprocessor"
+        "invalid.deprecated"
       ],
       "settings": {
         "fontStyle": "strikethrough",
@@ -623,7 +643,9 @@
     "event": "#C58F78",
     "function": "#9FC7EA",
     "method": "#9FC7EA",
-    "macro": "#C5AFE2",
+    "macro": "#EAAF84",
+    "macro:c": "#EAAF84",
+    "macro:cpp": "#EAAF84",
     "label": "#C58F78",
     "comment": "#7C746E",
     "string": "#A8CC91",
