@@ -1,0 +1,37 @@
+name: Gelato
+variant: dark
+
+neutral:
+  bg0: "#211E1D"
+  bg1: "#2A2725"
+  bg2: "#363230"
+
+  gray0: "#66605B"
+  gray1: "#77706A"
+  gray2: "#9A938B"
+
+  fg0: "#D0CAC0"
+  fg1: "#E0D9CE"
+  fg2: "#EEE7DC"
+
+colors:
+  red: "#D58E87"
+  orange: "#D49E7B"
+  yellow: "#D5C27F"
+  green: "#9DBB8C"
+  cyan: "#8DBCB7"
+  blue: "#91B2CC"
+  purple: "#AF9AC4"
+  brown: "#B78873"
+
+bright:
+  red: "#E3A29A"
+  orange: "#E2B08C"
+  yellow: "#E4D192"
+  green: "#AEC99B"
+  cyan: "#9DCAC5"
+  blue: "#A3C1DA"
+  purple: "#BEABD2"
+
+special:
+  cursor: "#D5CEA9"

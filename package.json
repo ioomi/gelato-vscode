@@ -41,6 +41,11 @@
         "path": "./themes/Gelato Affogato-color-theme.json"
       },
       {
+        "label": "Gelato Vanilla",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Gelato Vanilla-color-theme.json"
+      },
+      {
         "label": "Gelato Soft",
         "uiTheme": "vs-dark",
         "path": "./themes/Gelato Soft-color-theme.json"

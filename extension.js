@@ -1,7 +1,7 @@
 const vscode = require("vscode");
 const typography = require("./theme-definitions/typography.cjs");
 
-const themeSelector = "[Gelato Sorbet][Gelato Affogato][Gelato Soft]";
+const themeSelector = "[Gelato Sorbet][Gelato Affogato][Gelato Vanilla][Gelato Soft]";
 const managedRulePrefix = "Gelato global ";
 
 function isObject(value) {
