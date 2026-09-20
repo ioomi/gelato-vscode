@@ -39,6 +39,11 @@
         "label": "Gelato Affogato",
         "uiTheme": "vs-dark",
         "path": "./themes/Gelato Affogato-color-theme.json"
+      },
+      {
+        "label": "Gelato Soft",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Gelato Soft-color-theme.json"
       }
     ],
     "configuration": {
@@ -49,13 +54,13 @@
           "type": "boolean",
           "scope": "application",
           "default": true,
-          "description": "Enable bold syntax styles in Gelato Sorbet and Gelato Affogato."
+          "description": "Enable bold syntax styles in Gelato themes."
         },
         "gelato.italic": {
           "type": "boolean",
           "scope": "application",
           "default": false,
-          "description": "Enable italic syntax styles in Gelato Sorbet and Gelato Affogato."
+          "description": "Enable italic syntax styles in Gelato themes."
         }
       }
     }

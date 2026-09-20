@@ -7,7 +7,7 @@ import themeDefinitions from "../theme-definitions/index.mjs";
 import typography from "../theme-definitions/typography.cjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const palettePath = path.join(root, "palette.yaml");
+const defaultPalettePath = path.join(root, "palettes", "default.yaml");
 const themesDirectory = path.join(root, "themes");
 const checkOnly = process.argv.includes("--check");
 
@@ -39,15 +39,16 @@ const paletteFields = {
   cursor: ["special", "cursor"],
 };
 
-function readPalette(source) {
+function readPalette(source, sourcePath) {
+  const label = path.relative(root, sourcePath);
   const parsed = YAML.parse(source);
   if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
-    throw new Error("palette.yaml must contain a YAML mapping");
+    throw new Error(`${label} must contain a YAML mapping`);
   }
 
   for (const field of ["name", "variant"]) {
     if (typeof parsed[field] !== "string" || parsed[field].trim() === "") {
-      throw new Error(`palette.yaml: ${field} must be a non-empty string`);
+      throw new Error(`${label}: ${field} must be a non-empty string`);
     }
   }
 
@@ -56,7 +57,7 @@ function readPalette(source) {
   for (const [key, [group, field]] of Object.entries(paletteFields)) {
     const value = parsed[group]?.[field];
     if (typeof value !== "string" || !/^#[0-9A-Fa-f]{6}$/.test(value)) {
-      throw new Error(`palette.yaml: ${group}.${field} must be a # followed by 6 hexadecimal digits`);
+      throw new Error(`${label}: ${group}.${field} must be a # followed by 6 hexadecimal digits`);
     }
     colors[key] = value.toUpperCase();
     namedColors[`${group}.${field}`] = colors[key];
@@ -379,13 +380,24 @@ function assertPaletteOnly(theme, palette) {
 }
 
 async function main() {
-  const palette = readPalette(await readFile(palettePath, "utf8"));
-  const outputs = themeDefinitions.map((definition) => ({
-    outputPath: path.join(themesDirectory, `${palette.scheme} ${definition.flavor}-color-theme.json`),
-    theme: createTheme(palette, definition),
-  }));
+  const outputs = await Promise.all(
+    themeDefinitions.map(async (definition) => {
+      const definitionPalettePath = definition.palette
+        ? path.join(root, definition.palette)
+        : defaultPalettePath;
+      const palette = readPalette(
+        await readFile(definitionPalettePath, "utf8"),
+        definitionPalettePath,
+      );
+      return {
+        outputPath: path.join(themesDirectory, `${palette.scheme} ${definition.flavor}-color-theme.json`),
+        palette,
+        theme: createTheme(palette, definition),
+      };
+    }),
+  );
 
-  for (const { outputPath, theme } of outputs) {
+  for (const { outputPath, palette, theme } of outputs) {
     assertPaletteOnly(theme, palette.colors);
     const generated = `${JSON.stringify(theme, null, 2)}\n`;
 
