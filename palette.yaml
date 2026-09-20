@@ -2,13 +2,13 @@ name: Gelato
 variant: dark
 
 neutral:
-  bg0: "#202020"
-  bg1: "#292929"
-  bg2: "#373634"
+  bg0: "#211E1D"
+  bg1: "#2B2725"
+  bg2: "#393330"
 
-  gray0: "#686661"
-  gray1: "#77736D"
-  gray2: "#A09D95"
+  gray0: "#6C6560"
+  gray1: "#7C746E"
+  gray2: "#A39C94"
 
   fg0: "#D8D4C8"
   fg1: "#E9E4D7"
