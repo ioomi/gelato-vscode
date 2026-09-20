@@ -18,6 +18,18 @@ Gelato keeps the editor comfortably dark while giving syntax a warm, colorful hi
 
 Both themes include semantic highlighting, complete workbench styling, bracket colors, diagnostics, Git decorations, and Markdown syntax support.
 
+### Gelato Sorbet
+
+Colorful and expressive, with clear separation between syntax elements.
+
+![Gelato Sorbet theme preview](./assets/gelato-sorbet-preview.png)
+
+### Gelato Affogato
+
+Restrained and focused, with richer contrast and a selective use of color.
+
+![Gelato Affogato theme preview](./assets/gelato-affogato-preview.png)
+
 ## Installation
 
 To try Gelato from source:
